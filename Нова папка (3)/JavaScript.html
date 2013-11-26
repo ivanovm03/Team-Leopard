@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>Clock</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script language="JavaScript">
+
+function clock() {
+
+now = new Date();
+hours = now.getHours();
+minutes = now.getMinutes();
+seconds = now.getSeconds();
+now_time = "" + hours;
+now_time += ((minutes < 10) ? ":0" : ":") + minutes;
+now_time += ((seconds < 10) ? ":0" : ":") + seconds;
+
+date = now.getDate();
+month = now.getMonth();
+switch (month) {
+
+case 0:
+month = "Януари";
+break;
+
+case 1:
+month = "Февруари";
+break;
+
+case 2:
+month = "Март";
+break;
+
+case 3:
+month = "Април";
+break;
+
+case 4:
+month = "Май";
+break;
+
+case 5:
+month = "Юни";
+break;
+
+case 6:
+month = "Юли";
+break;
+
+case 7:
+month = "Август";
+break;
+
+case 8:
+month = "Септември";
+break;
+
+case 9:
+month = "Октомври";
+break;
+
+case 10:
+month = "Ноември";
+break;
+
+case 11:
+month = "Декември";
+break;
+
+}
+
+year = now.getYear();
+den = now.getDay();
+switch (den) {
+
+case 0:
+den = "Неделя";
+break;
+
+case 1:
+den = "Понеделник";
+break;
+
+case 2:
+den = "Вторник";
+break;
+
+case 3:
+den = "Сряда";
+break;
+
+case 4:
+den = "Четвъртък";
+break;
+
+case 5:
+den = "Петък";
+break;
+
+case 6:
+den = "Събота";
+break;
+
+}
+year = now.getYear() + 1900;
+now_date = den + ", " + date + " " + month + " " + year;
+document.getElementById('clock_show').innerHTML = "<font face='Verdana' size='2'>" + now_date + ", " + now_time + "</font>";
+setTimeout("clock()", 1000);
+
+}
+
+</script>
+</head>
+
+<body onLoad="clock()">
+
+<div id="clock_show"></div> 
